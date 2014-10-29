@@ -14,7 +14,9 @@ class ApiAuthentication < Faraday::Middleware
   end
 end
 
-
+configure do
+  enable :cross_origin
+end
 
 get '/*' do
   current_uri

@@ -4,3 +4,4 @@ gem 'unicorn'
 gem 'faraday'
 gem 'faraday_middleware'
 gem 'faraday-conductivity'
+gem "sinatra-cross_origin", "~> 0.3.1"
