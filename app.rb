@@ -16,13 +16,14 @@ end
 
 before do
    content_type :json
-   headers 'Access-Control-Allow-Origin' => '*', 'Access-Control-Allow-Credentials' => 'true', 'Access-Control-Allow-Headers' => '', 'Access-Control-Allow-Methods' => 'POST,GET,OPTIONS'
+   headers 'Access-Control-Allow-Origin' => request.env["HTTP_ORIGIN"], 'Access-Control-Allow-Credentials' => 'true', 'Access-Control-Allow-Headers' => '', 'Access-Control-Allow-Methods' => 'POST,GET,OPTIONS'
 end
 
 
 get '/*' do
   logger.debug elvis_session
   d =   elvis_get(current_uri).body
+  logger.info request.env["HTTP_ORIGIN"]
   logger.info d
   d
 end
