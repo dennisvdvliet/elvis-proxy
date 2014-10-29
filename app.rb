@@ -14,14 +14,14 @@ class ApiAuthentication < Faraday::Middleware
   end
 end
 
-configure do
-  enable :cross_origin
+before do
+   content_type :json
+   headers 'Access-Control-Allow-Origin' => '*',
+            'Access-Control-Allow-Methods' => ['OPTIONS', 'GET', 'POST']
 end
 
+
 get '/*' do
-  current_uri
-  request.env
-  content_type :json
   logger.debug elvis_session
   d =   elvis_get(current_uri).body
   logger.info d
