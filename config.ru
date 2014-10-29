@@ -1,6 +1,6 @@
 require 'sinatra'
 
-set     :env, :production
+set     :env, :development
 disable :run
 
 require './app.rb'
