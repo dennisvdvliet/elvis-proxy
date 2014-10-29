@@ -5,7 +5,7 @@ require 'open-uri'
 require "faraday_middleware"
 require "faraday/conductivity"
 
-require "sinatra/reloader"
+require "sinatra/reloader" if development?
 
 class ApiAuthentication < Faraday::Middleware
   def call(env)
@@ -21,7 +21,9 @@ get '/*' do
   request.env
   content_type :json
   logger.debug elvis_session
-  elvis_get(current_uri).body
+  d =   elvis_get(current_uri).body
+  logger.info d
+  d
 end
 
 
