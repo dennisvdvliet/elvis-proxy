@@ -16,7 +16,7 @@ end
 
 before do
    content_type :json
-   headers 'Access-Control-Allow-Origin' => '*'
+   headers 'Access-Control-Allow-Origin' => '*', 'Access-Control-Allow-Credentials' => 'true', 'Access-Control-Allow-Headers' => '', 'Access-Control-Allow-Methods' => 'POST,GET,OPTIONS'
 end
 
 
